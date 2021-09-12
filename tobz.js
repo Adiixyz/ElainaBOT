@@ -12,9 +12,9 @@ SILAHKAN KONTRIBUSI/PULL REQUEST
 BAGI YANG NANYA2 MASANG APIKEY DIMANA??
 BACA README NYA, PERCUMA W BUAT README
 
-INGAT JANGAN JUAL SCRIPT ELAINA KEPADA ORANG LAIN!
+INGAT JANGAN JUAL SCRIPT ITSUKI KEPADA ORANG LAIN!
 
-ELAINA BOT V3
+ITSUKI BOT
 */
 require('dotenv').config()
 const { decryptMedia } = require('@open-wa/wa-decrypt')
@@ -156,7 +156,7 @@ let state = {
     }
 }
 
-prefix = '#'
+prefix = 'i!'
 var timeStart = Date.now() / 1000
 moment.tz.setDefault('Asia/Jakarta').locale('id')
 
@@ -212,7 +212,7 @@ module.exports = tobz = async (tobz, message) => {
 
         const serial = sender.id
         const isAdmin = adminNumber.includes(sender.id)
-        const ownerNumber = '6281311850715@c.us'
+        const ownerNumber = '60199782326@c.us'
         const isOwner = ownerNumber.includes(sender.id)
 
 	if (isGroupMsg && !isCmd && isBadword) {
@@ -220,9 +220,9 @@ module.exports = tobz = async (tobz, message) => {
 	    if (detectbw) {
 		if (!isOwner && !isBotGroupAdmins && !isGroupAdmins) { 
                     console.log("Badword Detected")
-                    tobz.reply(from, "*「 ANTI BADWORD 」*\nMaaf, Kamu Elaina kick dari grup karena berkata kasar :(", id)
+                    tobz.reply(from, "*「 ANTI BADWORD 」*\nMaaf, Kamu Itsuki kick dari grup karena berkata kasar :(", id)
                     await tobz.removeParticipant(from, sender.id)
-                } tobz.reply(from, "Untung kamu Admin :)\nJangan ngomong kasar ya min! nanti Elaina kick nih :(", id)
+                } tobz.reply(from, "Untung kamu Admin :)\nJangan ngomong kasar ya min! nanti Itsuki kick nih 😌", id)
 	    }
 	}
 	
@@ -307,7 +307,7 @@ module.exports = tobz = async (tobz, message) => {
             if (obj === true){
                 return false
             } else {
-                return tobz.reply(from, `Kamu belum cukup umur untuk menggunakan Elaina, min 16 tahun\n\nKamu bisa mendaftar ulang dengan cara donasi terlebih dahulu, bales ${prefix}donasi\nHubungi Owner : wa.me/6281311850715`, id) //if user is not registered
+                return tobz.reply(from, `Kamu belum cukup umur untuk menggunakan Itsuki, min 16 tahun\n\nKamu bisa mendaftar ulang dengan cara chat owner terlebih dahulu\nHubungi Owner : wa.me/60199782326`, id) //if user is not registered
             }
         }
 
@@ -379,8 +379,8 @@ module.exports = tobz = async (tobz, message) => {
             wait: '[ WAIT ] Sedang di proses⏳ silahkan tunggu sebentar',
             magernulissatu: 'Harap Tunggu, BOT Sedang Menulis Di Buku 1!',
             error: {
-                St: '[❗] Kirim gambar dengan caption *#sticker* atau tag gambar yang sudah dikirim',
-                Ti: '[❗] Replay sticker dengan caption *#stickertoimg* atau tag sticker yang sudah dikirim',
+                St: '[❗] Kirim gambar dengan caption *i!sticker* atau tag gambar yang sudah dikirim',
+                Ti: '[❗] Replay sticker dengan caption *i!stickertoimg* atau tag sticker yang sudah dikirim',
                 Qm: '[❗] Terjadi kesalahan, mungkin themenya tidak tersedia!',
                 Yt3: '[❗] Terjadi kesalahan, tidak dapat meng konversi ke mp3!',
                 Yt4: '[❗] Terjadi kesalahan, mungkin error di sebabkan oleh sistem.',
@@ -423,7 +423,7 @@ module.exports = tobz = async (tobz, message) => {
                 if(i.id === id){
                     if (i.msg >= 12) {
                         found === true 
-                        tobz.reply(from, '*「 𝗔𝗡𝗧𝗜 𝗦𝗣𝗔𝗠 𝗦𝗧𝗜𝗖𝗞𝗘𝗥 」*\nKamu telah SPAM STICKER di grup, kamu akan di kick otomatis oleh Elaina', message.id).then(() => {
+                        tobz.reply(from, '*「 𝗔𝗡𝗧𝗜 𝗦𝗣𝗔𝗠 𝗦𝗧𝗜𝗖𝗞𝗘𝗥 」*\nKamu telah SPAM STICKER di grup, kamu akan di kick otomatis oleh Itsuki', message.id).then(() => {
                             tobz.removeParticipant(groupId, id)
                         }).then(() => {
                             const cus = id
@@ -479,7 +479,7 @@ module.exports = tobz = async (tobz, message) => {
                     let msg = i.msg
                     if (msg >= 12) { // 12x
                         kasar === true 
-                        tobz.reply(from, '*「 𝗔𝗡𝗧𝗜 𝗕𝗔𝗗𝗪𝗢𝗥𝗗 」*\nKamu telah berkata kasar di grup ini, kamu akan di kick otomatis oleh Elaina!', message.id).then(() => {
+                        tobz.reply(from, '*「 𝗔𝗡𝗧𝗜 𝗕𝗔𝗗𝗪𝗢𝗥𝗗 」*\nKamu telah berkata kasar di grup ini, kamu akan di kick otomatis oleh Itsuki!', message.id).then(() => {
                             tobz.removeParticipant(groupId, id)
                         }).then(() => {
                             const cus = id
@@ -534,7 +534,7 @@ module.exports = tobz = async (tobz, message) => {
                         if(i.id === id){
                             if (i.msg >= 8) {
                                 found === true 
-                                tobz.reply(from, `*「 𝗔𝗡𝗧𝗜 𝗦𝗣𝗔𝗠 」*\nMaaf, akun anda kami blok karena SPAM, dan tidak bisa di UNBLOK!`, id)
+                                tobz.reply(from, `*「 𝗔𝗡𝗧𝗜 𝗦𝗣𝗔𝗠 」*\nMaaf, akun anda kami blok karena SPAM, chat owner untuk unblok`, id)
                                 tobz.contactBlock(id)
                                 banned.push(id)
                                 fs.writeFileSync('./lib/database/banned.json', JSON.stringify(banned))
