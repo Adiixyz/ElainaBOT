@@ -9,15 +9,13 @@ const figlet = require('figlet')
 const lolcatjs = require('lolcatjs')
 const options = require('./options')
 
-// AUTO UPDATE BY NURUTOMO
-// THX FOR NURUTOMO
 // Cache handler and check for file change
-require('./tobz.js')
-nocache('./tobz.js', module => console.log(`'${module}' Updated!`))
+require('./itsuki.js')
+nocache('./itsuki.js', module => console.log(`'${module}' updated via coli`))
 require('./lib/help.js')
-nocache('./lib/help.js', module => console.log(`'${module}' Updated!`))
+nocache('./lib/help.js', module => console.log(`'${module}' update via ah ah yamete:v`))
 require('./lib/database/setting.json')
-nocache('./lib/database/setting.json', module => console.log(`'${module}' Updated!`))
+nocache('./lib/database/setting.json', module => console.log(`'${module}' updated via pacar sange lo:v`))
 
 const adminNumber = JSON.parse(fs.readFileSync('./lib/database/admin.json'))
 const setting = JSON.parse(fs.readFileSync('./lib/database/setting.json'))
@@ -45,9 +43,9 @@ lolcatjs.options.colors = true;
 
 const start = async (tobz = new Client()) => {
         console.log('------------------------------------------------')
-        lolcatjs.fromString(color(figlet.textSync('ELAINA BOT', { horizontalLayout: 'full' })))
+        lolcatjs.fromString(color(figlet.textSync('ITSUKI BOT', { horizontalLayout: 'full' })))
         console.log('------------------------------------------------')
-        lolcatjs.fromString('[DEV] TOBZ')
+        lolcatjs.fromString('[DEV] ITSUKI')
         lolcatjs.fromString('[SERVER] Server Started!')
         tobz.onAnyMessage((fn) => messageLog(fn.fromMe, fn.type))
         // Force it to keep the current session
@@ -67,7 +65,7 @@ const start = async (tobz = new Client()) => {
             })
         // msgHndlr(tobz, message)
         // Message Handler (Loaded from recent cache)
-        require('./tobz.js')(tobz, message)
+        require('./itsuki.js')(tobz, message)
     }))
            
 
@@ -82,23 +80,20 @@ const start = async (tobz = new Client()) => {
                 const groups = await tobz.getAllGroups()
                 // BOT group count less than
                 if(groups.length > groupLimit){
-                    await tobz.sendText(chat.id, 'Maaf, Batas group yang dapat Elaina tampung sudah penuh').then(async () =>{
-                        tobz.deleteChat(chat.id)
+                    await tobz.sendText(chat.id, 'Maaf, Batas group yang dapat Itsuki tampung sudah penuh').then(async () =>{
                         tobz.leaveGroup(chat.id)
                     })
                 }else{
                     if(chat.groupMetadata.participants.length < memberLimit){
                         await tobz.sendText(chat.id, `Maaf, BOT keluar jika member group tidak melebihi ${memberLimit} orang`).then(async () =>{
-                            tobz.deleteChat(chat.id)
                             tobz.leaveGroup(chat.id)
                         })
                     }else{
-                        if(!chat.isReadOnly) tobz.sendText(chat.id, 'Halo aku Elaina, Ketik #help Untuk Melihat List Command Ku...')
+                        if(!chat.isReadOnly) tobz.sendText(chat.id, 'Hi, Aku *Itsuki Bot*. silahkan ketik *.menu* untuk mulai!')
                     }
                 }
             }else{
-                await tobz.sendText(chat.id, 'Elaina sedang maintenance, coba lain hari').then(async () => {
-                    tobz.deleteChat(chat.id)
+                await tobz.sendText(chat.id, 'Itsuki sedang maintenance, coba lain hari').then(async () => {
                     tobz.leaveGroup(chat.id)
                 })
             }
@@ -122,7 +117,7 @@ const start = async (tobz = new Client()) => {
  * @param {function} cb <optional> 
  */
 function nocache(module, cb = () => { }) {
-    console.log('Module', `'${module}'`, 'is now being watched for changes')
+    console.log('Module', `'${module}'`, 'is now being watched for coli')
     fs.watchFile(require.resolve(module), async () => {
         await uncache(require.resolve(module))
         cb(module)
